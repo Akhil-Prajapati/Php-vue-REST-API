@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="styles.css" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <h1>{{calldiv('night')}}</h1>
+            <span>{{name}}</span>
+            <a v-bind:href="website">valorant</a>
+            <input type="text" v-bind:value="name">
+            <div v-html="greencolor"></div>
+        </div>
+        <div id="calculate">
+            <button v-on:click="add(6)">add</button>
+            <button v-on:dblclick="sub(6)">sub</button>
+            <h2>add {{age}} sub</h2>
+
+            <div id="canvas" v-on:mousemove="upadteXY">{{ X }},{{ Y }}</div>
+            <a v-on:click.prevent="send" href="https://playvalorant.com/en-us/">click here</a>
+            <label>text</label>
+            <input type="text" v-on:keyup.right="lenth">
+            <h4>{{L}}</h4>
+            <label for="">name</label>
+            <input type="text" v-model="name">
+            <span>{{ name }}</span>
+            <br>
+            <button v-on:click="s++">addinone</button><br>
+            <p>area ={{ s }}</p>
+            <p>Age+area={{ addtos }}</p>
+
+            <!-- <div v-on:click="available=!available" v-bind:class="{available:available}">
+                <span>Span</span>
+            </div> -->
+            <button v-on:click="available=!available">toggle available</button>
+            <button v-on:click="nearby=!nearby">toggle nearby</button>
+
+            <div v-bind:class="compClass"><span>this is sooo cool</span>></div>
+            <button v-on:click="error=!error">click for error</button>
+            <button v-on:click="success=!success">click for success</button>
+
+            <!-- <p v-if="error">there is an error in your devices</p><br>
+            <p v-if-else-if="success">success</p> -->
+            <p v-show="error">there is an error in your devices</p>
+            <p v-show="success">success</p>
+            <div>
+            <ul>
+                <li v-for="array in arrays">
+                    {{array}}
+                </li>
+                <template v-for="object in objects">
+                    <div v-for="(val,key) in object">
+                    <p>{{ key }} - {{ val }}</p>
+                    </div>
+                    <!-- <P>{{object.name}}:{{object.age}}</P> -->
+                </template>
+            </ul>
+            <div id="vue-app-one">
+                <h1>Vue App One</h1>
+                <greeting></greeting>
+            </div>
+            <div id="vue-app-two">
+                <h1>Vue App Two</h1>
+                <greeting></greeting>
+            </div>
+            <div>
+                <label>your fav food</label><br>
+                <input type="text" ref="food">
+                <button v-on:click="findfood">Submit!</button>
+                <ul>
+                    <li>
+                        your fav Food is: {{output}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script src="vue.js"></script>
+    </body>
+    </html>
